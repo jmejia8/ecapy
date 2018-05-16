@@ -14,6 +14,10 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 class Installer(install):
     def run(self):
+        command = "mkdir deps/ && mkdir bin/"
+        process = subprocess.Popen(command, shell=True)
+        process.wait()
+
         command = "git clone https://github.com/jmejia8/eca"
         process = subprocess.Popen(command, shell=True, cwd="deps")
         process.wait()
@@ -32,6 +36,7 @@ setup(
     license='MIT',
 
     long_description=long_description,
+    long_description_content_type='text/markdown',
 
     author='Jesus Mejia',
     author_email='jesusmejded@gmail.com',
@@ -49,7 +54,7 @@ setup(
 
     keywords='optimization evolutionary metaheuristic',
 
-    packages=['eca'],
+    packages=['ecapy'],
 
     dependency_links=['https://github.com/jmejia8/eca/archive/master.zip'],
     
