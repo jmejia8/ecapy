@@ -2,7 +2,7 @@ from ctypes import cdll,c_double,POINTER,c_int,CFUNCTYPE
 from os import path
 
 here = path.abspath(path.dirname(__file__))
-lib_path = here + '/../bin/eca.so'
+lib_path = here + '/eca.so'
 
 
 def eca(
