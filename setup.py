@@ -14,7 +14,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 class Installer(install):
     def run(self):
-        command = "mkdir deps/ && mkdir bin/"
+        command = "mkdir deps/"
         process = subprocess.Popen(command, shell=True)
         process.wait()
 
@@ -22,7 +22,7 @@ class Installer(install):
         process = subprocess.Popen(command, shell=True, cwd="deps")
         process.wait()
 
-        command = "make && mv eca.so ../../bin/eca.so"
+        command = "make && mv eca.so ../../ecapy/eca.so"
         process = subprocess.Popen(command, shell=True, cwd="deps/eca")
         process.wait()
         
@@ -32,7 +32,7 @@ setup(
     name='ecapy',
     description='Evolutionary Centers Algorithm: Module for Python coded in C',
     url='https://github.com/jmejia8/ecapy',
-    version='0.0.1',
+    version='0.0.6',
     license='MIT',
 
     long_description=long_description,
