@@ -32,7 +32,7 @@ setup(
     name='ecapy',
     description='Evolutionary Centers Algorithm: Module for Python coded in C',
     url='https://github.com/jmejia8/ecapy',
-    version='0.0.6',
+    version='1.0.0',
     license='MIT',
 
     long_description=long_description,
