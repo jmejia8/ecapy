@@ -8,7 +8,7 @@ for the next population... [read more.](https://www.dropbox.com/s/kqc22ki2edjtt0
 
 ## Parameters
 - Parameters (suggested):
-    - Objective function: `fonbj`
+    - Objective function: `fobj`
     - Dimension: `D`
     - K-value:
            `K = 7`
