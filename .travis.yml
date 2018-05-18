@@ -13,7 +13,7 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - pytest
+  - ./setup.py build && ./setup.py test
 
 notifications:
   email: false
