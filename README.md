@@ -18,6 +18,8 @@ for the next population... [read more.](https://www.dropbox.com/s/kqc22ki2edjtt0
            `eta_max = 2.0`
     - binomial probability:
            `P_bin = 0.03`
+    - Exploit parameter:
+           `P_exploit = 0.95`
      - Max. number of evaluations:
            `max_evals = 10000*D`
 
