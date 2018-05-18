@@ -1,5 +1,11 @@
 # Evolutionary Centers Algorithm
 
+
+[![Build Status](https://travis-ci.org/jmejia8/ecapy.svg?branch=master)](https://travis-ci.org/jmejia8/ecapy)
+
+
+## Summary
+
 ECA is a physics-inspired algorithm based on the center of mass concept on 
 a D-dimensional space for real-parameter single-objective optimization. The 
 general idea is to promote the creation of an irregular body using K mass points
