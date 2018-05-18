@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from setuptools import setup, Extension
-from setuptools.command.install import install
+from setuptools import setup
+from setuptools.command.build_py import build_py
 from codecs import open
 import subprocess
 from os import path
@@ -8,11 +8,13 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
 
-
-class Installer(install):
+class BuildECA(build_py):
     def run(self):
         command = "mkdir deps/"
         process = subprocess.Popen(command, shell=True)
@@ -26,17 +28,16 @@ class Installer(install):
         process = subprocess.Popen(command, shell=True, cwd="deps/eca")
         process.wait()
         
-        install.run(self)
+        build_py.run(self)
 
 setup(
     name='ecapy',
     description='Evolutionary Centers Algorithm: Module for Python coded in C',
     url='https://github.com/jmejia8/ecapy',
-    version='1.0.0',
+    version='1.0.1',
     license='MIT',
 
     long_description=long_description,
-    long_description_content_type='text/markdown',
 
     author='Jesus Mejia',
     author_email='jesusmejded@gmail.com',
@@ -63,13 +64,21 @@ setup(
         'test': ['coverage'],
     },
 
-    cmdclass={'install': Installer},
+    cmdclass={'build_py': BuildECA},
     include_package_data=True,
+
 
     project_urls={  
         'Bug Reports': 'https://github.com/jmejia8/ecapy/issues',
-        'Funding': 'https://donate.pypi.org',
-        'Say Thanks!': 'http://saythanks.io/to/example',
         'Source': 'https://github.com/jmejia8/ecapy/',
     },
+
+    # Test configuration
+    setup_requires=[
+        'pytest-runner',
+    ],
+
+     tests_require=[
+        'pytest'
+    ],
 )
